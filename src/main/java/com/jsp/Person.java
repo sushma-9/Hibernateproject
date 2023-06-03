@@ -1,9 +1,11 @@
 package com.jsp;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Person {
@@ -15,6 +17,8 @@ public class Person {
 	private int age;
 	private String gender;
 	private long phno;
+	@OneToOne(fetch=FetchType.LAZY)
+	private Adharcard card;
 	
 	public int getId() {
 		return id;
@@ -47,4 +51,10 @@ public class Person {
 		this.phno = phno;
 	}
 	
+	public Adharcard getCard() {
+		return card;
+	}
+	public void setCard(Adharcard card) {
+		this.card = card;
+	}
 }
